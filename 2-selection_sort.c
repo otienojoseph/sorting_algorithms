@@ -8,8 +8,8 @@
 */
 void selection_sort(int *array, size_t size)
 {
-	int min_index, temp;
-	size_t i, j;
+	int temp;
+	size_t i, j, min_index;
 
 	/* Traverse through all array elements */
 	for (i = 0; i < size - 1; i++)
@@ -24,10 +24,13 @@ void selection_sort(int *array, size_t size)
 		}
 
 		/* Swap the found minimum element with the first element */
-		temp = array[i];
-		array[i] = array[min_index];
+		if (min_index != i)
+		{
+			temp = array[i];
+			array[i] = array[min_index];
 
-		array[min_index] = temp;
-		print_array(array, size);
+			array[min_index] = temp;
+			print_array(array, size);
+		}
 	}
 }
